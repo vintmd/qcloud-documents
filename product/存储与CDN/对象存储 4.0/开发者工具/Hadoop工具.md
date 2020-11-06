@@ -13,8 +13,11 @@ Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 Co
 
 #### 软件依赖
 
-Hadoop-2.6.0及以上版本。
-
+Hadoop-2.6.0及以上版本。<br>
+NOTE：<br>
+1.目前hadoop-cos已经正式被Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html) <br>
+2.在Apache Hadoop-3.3.0 之前版本或CDH集成Hadoop-cos jar包后，需要重启NameNode才能加载到jar包。<br>
+3.需要编译具体Hadoop版本的jar包可更改pom文件中hadoop.version进行编译。<br>
 
 ## 下载与安装
 
@@ -69,6 +72,7 @@ done
 | fs.cosn.<br>server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密 |                              无                              |   否   |
 |    fs.cosn.<br>server-side-encryption.key    | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，<br>密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密 |                              无                              |   否   |
 | fs.cosn.<br>crc64.checksum.enabled | 是否开启 CRC64校验。默认不开启，此时无法使用 hadoop fs -checksum 命令<br>获取文件的 CRC64校验值。 | false | 否 |
+|fs.cosn.<br>crc32c.checksum.enabled    | 是否开启CRC32c校验。默认不开启，此时无法使用hadoop fs -checksum命令<br>获取文件的CRC32C校验值。只能开启一种校验方式| false | 否 |
 | fs.cosn.traffic.limit | 上传带宽的控制选项，819200 ~ 838860800 bits/s，默认值为-1，默认表示不限制。 | 无 | 否 | 
 
 
